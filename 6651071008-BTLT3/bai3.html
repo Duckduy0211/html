@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sản phẩm - Điện tử ABC</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: Arial, sans-serif;
+            background: #e6f0f0;
+            color: #1a1a1a;
+            line-height: 1.5;
+        }
+
+        header {
+            background: #9ad4d8;
+            border-bottom: 1px solid #8abac0;
+            padding: 10px 0;
+        }
+
+        .header-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 0 20px;
+        }
+
+        .logo-box {
+            width: 74px;
+            height: 60px;
+            background: #f4f4f4;
+            border: 2px solid #0d2f36;
+            border-radius: 10px;
+            box-shadow: 0 3px 0 rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .logo-box::before {
+            content: "AB";
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            font-weight: 700;
+            color: #0a0a0a;
+        }
+
+        .brand {
+            font-size: 42px;
+            font-weight: 700;
+            color: #111;
+            letter-spacing: 0.5px;
+            transform: translateY(-2px);
+        }
+
+        main {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 28px 20px 0;
+        }
+
+        .page-title {
+            font-size: 34px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #222;
+        }
+
+        .product-layout {
+            display: grid;
+            grid-template-columns: 2.3fr 1fr;
+            gap: 26px;
+            align-items: start;
+        }
+
+        .product-box {
+            background: #f5f5f5;
+            border-radius: 12px;
+            padding: 18px 18px 0;
+            border: 1px solid #d4d4d4;
+        }
+
+        .product-name {
+            font-size: 38px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 18px;
+            color: #1a1a1a;
+        }
+
+        .product-info {
+            display: grid;
+            grid-template-columns: 1.1fr 1.5fr;
+            gap: 18px;
+            align-items: center;
+        }
+
+        .image-box {
+            background: #efefef;
+            border: 1px solid #d0d0d0;
+            border-radius: 14px;
+            min-height: 360px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .image-box::before,
+        .image-box::after {
+            content: "";
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            border: 1px solid #8d8d8d;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.5);
+        }
+
+        .image-box::before { left: 18px; top: 18px; }
+        .image-box::after { right: 18px; bottom: 18px; }
+
+        .product-info img {
+            width: 260px;
+            height: auto;
+            display: block;
+            object-fit: contain;
+            filter: drop-shadow(0 20px 20px rgba(0,0,0,0.18));
+        }
+
+        .product-desc {
+            font-size: 17px;
+            color: #2d2d2d;
+            line-height: 1.65;
+            padding-right: 8px;
+        }
+
+        .spec-box {
+            margin-top: 20px;
+            padding: 0 0 12px;
+        }
+
+        .spec-title {
+            display: inline-block;
+            background: #e6f0f0;
+            border: 1px solid #d9d9d9;
+            border-bottom: none;
+            padding: 8px 14px;
+            font-size: 13px;
+            font-weight: 700;
+            color: #0f0f0f;
+            border-radius: 4px 4px 0 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1px solid #cfcfcf;
+            background: #fff;
+        }
+
+        th, td {
+            border: 1px solid #d6d6d6;
+            padding: 10px 12px;
+            text-align: left;
+            font-size: 17px;
+        }
+
+        thead th {
+            background: #cde9e9;
+            font-weight: 700;
+            color: #0d0d0d;
+        }
+
+        tbody th {
+            background: #edf6f6;
+            font-weight: 700;
+            width: 34%;
+        }
+
+        .policy-box {
+            background: #f4f4f4;
+            border: 1px solid #cfcfcf;
+            border-radius: 10px;
+            padding: 18px 18px 14px;
+            box-shadow: 0 2px 0 rgba(0,0,0,0.04);
+        }
+
+        .policy-box h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+            color: #222;
+        }
+
+        .policy-box ul {
+            list-style: none;
+            padding-left: 0;
+            font-size: 17px;
+            color: #333;
+        }
+
+        .policy-box li {
+            position: relative;
+            padding-left: 24px;
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        .policy-box li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 18px;
+            color: #111;
+        }
+
+        .similar-section {
+            margin-top: 26px;
+            padding-bottom: 26px;
+        }
+
+        .similar-section h2 {
+            font-size: 38px;
+            margin-bottom: 18px;
+            color: #202020;
+        }
+
+        .similar-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .product-item {
+            background: #f5f5f5;
+            border: 1px solid #d4d4d4;
+            border-radius: 12px;
+            padding: 10px 12px;
+            text-align: center;
+            min-height: 180px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .product-item img {
+            width: 90px;
+            height: 110px;
+            object-fit: contain;
+            margin-bottom: 10px;
+        }
+
+        .product-item .name {
+            font-size: 18px;
+            font-weight: 700;
+            color: #222;
+            margin-bottom: 4px;
+        }
+
+        .product-item .price {
+            font-size: 14px;
+            color: #333;
+        }
+
+        footer {
+            background: #0c5869;
+            color: #f4f4f4;
+            padding: 18px 20px;
+            margin-top: 10px;
+        }
+
+        .footer-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            font-size: 14px;
+        }
+
+        .footer-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        @media (max-width: 860px) {
+            .product-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .similar-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .product-name {
+                font-size: 30px;
+            }
+
+            .page-title,
+            .similar-section h2 {
+                font-size: 28px;
+            }
+
+            .brand {
+                font-size: 26px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-inner">
+            <div class="logo-box" aria-label="Logo điện tử ABC"></div>
+            <div class="brand">Điện tử ABC</div>
+        </div>
+    </header>
+
+    <main>
+        <h1 class="page-title">Thông tin sản phẩm</h1>
+
+        <div class="product-layout">
+            <section class="product-box">
+                <h2 class="product-name">Samsung Galaxy S24 Ultra</h2>
+
+                <div class="product-info">
+                    <div class="image-box">
+                        <img src="https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?auto=format&fit=crop&w=900&q=80" alt="Samsung Galaxy S24 Ultra">
+                    </div>
+
+                    <div class="product-desc">
+                        Samsung Galaxy S24 Ultra là dòng smartphone cao cấp sở hữu thiết kế sang trọng, màn hình sáng rõ, camera zoom 200MP và hiệu năng mạnh mẽ, đáp ứng tốt cho công việc lẫn giải trí.
+                    </div>
+                </div>
+
+                <div class="spec-box">
+                    <div class="spec-title">Thông số kỹ thuật</div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Thông số</th>
+                                <th>Chi tiết</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th>Màn hình</th>
+                                <td>Dynamic AMOLED 2X 6.8 inch</td>
+                            </tr>
+                            <tr>
+                                <th>Camera</th>
+                                <td>200 MP + 50 MP + 12 MP + 10 MP</td>
+                            </tr>
+                            <tr>
+                                <th>Pin</th>
+                                <td>5000 mAh</td>
+                            </tr>
+                            <tr>
+                                <th>RAM</th>
+                                <td>12GB RAM</td>
+                            </tr>
+                            <tr>
+                                <th>Bộ nhớ</th>
+                                <td>256GB / 512GB</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <aside class="policy-box">
+                <h3>Chính sách mua hàng</h3>
+                <ul>
+                    <li>Bảo hành 12 tháng</li>
+                    <li>Đổi trả 7 ngày</li>
+                    <li>Miễn phí ship (toàn quốc)</li>
+                </ul>
+            </aside>
+        </div>
+
+        <section class="similar-section">
+            <h2>Sản phẩm tương tự</h2>
+            <div class="similar-grid">
+                <div class="product-item">
+                    <img src="https://images.unsplash.com/photo-1591337676887-a217a6970a8a?auto=format&fit=crop&w=500&q=80" alt="iPhone 15 Pro">
+                    <div class="name">iPhone 15 Pro</div>
+                    <div class="price">15.900.000 VNĐ</div>
+                </div>
+
+                <div class="product-item">
+                    <img src="https://images.unsplash.com/photo-1677821950382-a4fb1f0b0d7a?auto=format&fit=crop&w=500&q=80" alt="Xiaomi 14 Pro">
+                    <div class="name">Xiaomi 14 Pro</div>
+                    <div class="price">16.300.000 VNĐ</div>
+                </div>
+
+                <div class="product-item">
+                    <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=500&q=80" alt="Galaxy Z Fold5">
+                    <div class="name">Galaxy Z Fold5</div>
+                    <div class="price">19.900.000 VNĐ</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-item">📍 <span>Địa chỉ: Ngã Tư Sở, Thanh Xuân, Hà Nội</span></div>
+            <div class="footer-item">☎️ <span>087.33.8.733</span></div>
+            <div class="footer-item">✉️ <span>email@gmail.com</span></div>
+            <div class="footer-item">🌐 <span>website.com</span></div>
+        </div>
+    </footer>
+
+</body>
+</html>

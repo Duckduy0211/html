@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MelodyVN Online - Học nhạc mọi lúc mọi nơi</title>
+    <style>
+        :root {
+            --bg: #f5f7ff;
+            --primary: #2d5cff;
+            --primary-dark: #1e3ec6;
+            --accent: #ffb703;
+            --card: #ffffff;
+            --line: #dfe7ff;
+            --text: #1c2434;
+            --muted: #667085;
+            --shadow: rgba(45, 92, 255, 0.12);
+        }
+
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(180deg, #eef4ff 0%, #f8f9ff 100%);
+            color: var(--text);
+        }
+
+        header {
+            background: linear-gradient(135deg, #1d4ed8 0%, #5b6ef8 58%, #7f8cff 100%);
+            color: white;
+            padding: 28px 20px 34px;
+            box-shadow: 0 12px 24px var(--shadow);
+        }
+
+        .header-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 38px;
+            letter-spacing: 0.5px;
+        }
+
+        h2 {
+            margin: 6px 0 0;
+            font-size: 24px;
+            font-weight: 500;
+            opacity: 0.95;
+        }
+
+        main {
+            max-width: 1100px;
+            margin: 30px auto 0;
+            padding: 0 20px 24px;
+            display: grid;
+            grid-template-columns: 1.8fr 1fr;
+            gap: 24px;
+            align-items: start;
+        }
+
+        .panel {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 18px;
+            box-shadow: 0 12px 28px rgba(38, 48, 68, 0.04);
+            padding: 20px 22px;
+        }
+
+        .panel h3 {
+            margin-top: 0;
+            font-size: 24px;
+            color: var(--primary-dark);
+        }
+
+        video {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 14px;
+            border: 1px solid #d7dff9;
+            background: #0b1120;
+        }
+
+        .video-desc,
+        .audio-label {
+            margin-top: 14px;
+            font-size: 17px;
+            color: var(--text);
+        }
+
+        .audio-list {
+            margin-top: 18px;
+            display: grid;
+            gap: 18px;
+        }
+
+        audio {
+            width: 100%;
+            display: block;
+            margin-top: 8px;
+        }
+
+        aside {
+            background: #f8faff;
+            border: 1px solid var(--line);
+            border-radius: 18px;
+            padding: 20px 18px;
+            box-shadow: 0 12px 22px rgba(0, 0, 0, 0.03);
+        }
+
+        aside h3 {
+            margin: 0 0 16px;
+            font-size: 26px;
+            color: var(--primary-dark);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #fff;
+            border: 1px solid #d9e4ff;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 13px 12px;
+            border-bottom: 1px solid #e3ebff;
+            font-size: 16px;
+        }
+
+        thead th {
+            background: #eaf1ff;
+            color: var(--primary-dark);
+        }
+
+        tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        footer {
+            background: #102442;
+            color: #edf4ff;
+            text-align: center;
+            padding: 18px 20px;
+            margin-top: 20px;
+            font-size: 15px;
+        }
+
+        @media (max-width: 820px) {
+            main {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                font-size: 30px;
+            }
+
+            h2 {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-inner">
+            <hgroup>
+                <h1>MelodyVN Online</h1>
+                <h2>Học nhạc mọi lúc mọi nơi</h2>
+            </hgroup>
+        </div>
+    </header>
+
+    <main>
+        <section class="panel">
+            <h3>Bài học: Hợp âm cơ bản Guitar</h3>
+            <video controls poster="https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=1200&q=80" preload="metadata">
+                <source src="bai_hoc_guitar.mp4" type="video/mp4">
+                <source src="bai_hoc_guitar.webm" type="video/webm">
+                <p>Trình duyệt của bạn không hỗ trợ video.</p>
+            </video>
+            <p class="video-desc">Học cách bấm các hợp âm guitar phổ biến nhất trong bài học video này.</p>
+        </section>
+
+        <aside>
+            <h3>Lịch học tuần này</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Ngày</th>
+                        <th>Buổi học</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Thứ Hai</td>
+                        <td>Guitar Cơ bản</td>
+                    </tr>
+                    <tr>
+                        <td>Thứ Tư</td>
+                        <td>Piano Nhập môn</td>
+                    </tr>
+                    <tr>
+                        <td>Thứ Sáu</td>
+                        <td>Hợp âm nâng cao</td>
+                    </tr>
+                </tbody>
+            </table>
+        </aside>
+
+        <section class="panel" style="grid-column: 1 / -1;">
+            <h3>Nghe thử giai điệu mẫu</h3>
+
+            <div class="audio-list">
+                <div>
+                    <p class="audio-label">Canon in D - Piano</p>
+                    <audio controls preload="none">
+                        <source src="canon_piano.mp3" type="audio/mpeg">
+                        <source src="canon_piano.ogg" type="audio/ogg">
+                        <p>Trình duyệt không hỗ trợ audio.</p>
+                    </audio>
+                </div>
+
+                <div>
+                    <p class="audio-label">Fur Elise - Piano</p>
+                    <audio controls autoplay loop preload="auto">
+                        <source src="fur_elise.mp3" type="audio/mpeg">
+                        <source src="fur_elise.ogg" type="audio/ogg">
+                        <p>Trình duyệt không hỗ trợ audio.</p>
+                    </audio>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Trung tâm âm nhạc MelodyVN - 123 Đường Nhạc, Quận Âm | Email: info@melodyvn.com | Hotline: 1900 6789</p>
+    </footer>
+
+</body>
+</html>

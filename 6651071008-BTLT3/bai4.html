@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng ký tài khoản mới - ShopVN</title>
+    <style>
+        :root {
+            --bg: #f3f6fb;
+            --card: #ffffff;
+            --primary: #1d4ed8;
+            --primary-dark: #163db4;
+            --accent: #e0ecff;
+            --border: #dfe7f5;
+            --text: #1f2937;
+            --muted: #6b7280;
+        }
+
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #edf4ff 0%, #f9fbff 100%);
+            color: var(--text);
+        }
+
+        main {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 32px 20px;
+        }
+
+        .form-wrap {
+            width: min(100%, 900px);
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            box-shadow: 0 18px 45px rgba(29, 78, 216, 0.08);
+            padding: 28px 30px 36px;
+        }
+
+        h1 {
+            margin: 0 0 24px;
+            text-align: center;
+            font-size: 38px;
+            color: var(--primary-dark);
+        }
+
+        fieldset {
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            background: #f9fbff;
+            padding: 20px 18px 12px;
+            margin-bottom: 22px;
+        }
+
+        legend {
+            padding: 0 12px;
+            font-weight: 700;
+            color: var(--primary-dark);
+            font-size: 18px;
+        }
+
+        form {
+            display: grid;
+            gap: 10px;
+        }
+
+        .row {
+            display: grid;
+            grid-template-columns: 180px 1fr;
+            gap: 12px;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        label {
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        input, select, button {
+            font: inherit;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="tel"],
+        input[type="number"],
+        input[type="date"],
+        input[type="search"],
+        input[type="url"],
+        input[type="file"] {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #cfe0ff;
+            border-radius: 10px;
+            background: #fff;
+            outline: none;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(29, 78, 216, 0.12);
+        }
+
+        .radio-group,
+        .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+            align-items: center;
+            min-height: 42px;
+        }
+
+        .radio-group label,
+        .checkbox-group label {
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        input[type="radio"],
+        input[type="checkbox"] {
+            accent-color: var(--primary);
+        }
+
+        input[type="color"] {
+            width: 64px;
+            height: 38px;
+            padding: 4px;
+            border: 1px solid #d5dff2;
+            background: #fff;
+            border-radius: 8px;
+        }
+
+        input[type="range"] {
+            width: 100%;
+            accent-color: var(--primary);
+        }
+
+        .actions {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-top: 8px;
+        }
+
+        .btn {
+            border: none;
+            border-radius: 12px;
+            padding: 12px 28px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.2s ease, opacity 0.2s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-1px);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary) 0%, #2563eb 100%);
+            color: white;
+        }
+
+        .btn-secondary {
+            background: #eef2ff;
+            color: var(--primary-dark);
+        }
+
+        @media (max-width: 700px) {
+            .form-wrap {
+                padding: 22px 16px 26px;
+            }
+
+            .row {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <main>
+        <section class="form-wrap">
+            <h1>Đăng ký tài khoản mới</h1>
+
+            <form action="xu_ly_dangky.php" method="POST" enctype="multipart/form-data" name="formDangKy" id="formDangKy">
+
+                <fieldset>
+                    <legend>Thông tin cơ bản</legend>
+
+                    <div class="row">
+                        <label for="hoten">Họ và tên:</label>
+                        <input type="text" name="hoten" id="hoten" placeholder="Nguyễn Văn An" required maxlength="100">
+                    </div>
+
+                    <div class="row">
+                        <label for="email">Email:</label>
+                        <input type="email" name="email" id="email" placeholder="example@gmail.com" required>
+                    </div>
+
+                    <div class="row">
+                        <label for="matkhau">Mật khẩu:</label>
+                        <input type="password" name="matkhau" id="matkhau" minlength="8" required>
+                    </div>
+
+                    <div class="row">
+                        <label for="sdt">Số điện thoại:</label>
+                        <input type="tel" name="sdt" id="sdt" pattern="[0-9]{10}" placeholder="0901234567">
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Thông tin cá nhân</legend>
+
+                    <div class="row">
+                        <label for="tuoi">Tuổi:</label>
+                        <input type="number" name="tuoi" id="tuoi" min="16" max="99" step="1" value="18">
+                    </div>
+
+                    <div class="row">
+                        <label for="ngaysinh">Ngày sinh:</label>
+                        <input type="date" name="ngaysinh" id="ngaysinh" min="1950-01-01" max="2010-12-31">
+                    </div>
+
+                    <div class="row">
+                        <label>Giới tính:</label>
+                        <div class="radio-group">
+                            <label><input type="radio" name="gioitinh" id="gt_nam" value="nam"> Nam</label>
+                            <label><input type="radio" name="gioitinh" id="gt_nu" value="nu"> Nữ</label>
+                            <label><input type="radio" name="gioitinh" id="gt_khac" value="khac"> Khác</label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <label for="mauua">Màu yêu thích:</label>
+                        <input type="color" name="mauua" id="mauua" value="#FF6B6B">
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Sở thích &amp; Cài đặt</legend>
+
+                    <div class="row">
+                        <label for="soikim">Tìm kiếm sở thích:</label>
+                        <input type="search" name="soikim" id="soikim" placeholder="Ví dụ: đọc sách, chơi game...">
+                    </div>
+
+                    <div class="row">
+                        <label for="chitieu">Mức chi tiêu/tháng (VNĐ):</label>
+                        <input type="range" name="chitieu" id="chitieu" min="0" max="50000000" step="500000" value="5000000">
+                    </div>
+
+                    <div class="row">
+                        <label>Sở thích:</label>
+                        <div class="checkbox-group">
+                            <label><input type="checkbox" name="st_docsinh" id="st_docsinh" value="doc"> Đọc sách</label>
+                            <label><input type="checkbox" name="st_game" id="st_game" value="game"> Chơi game</label>
+                            <label><input type="checkbox" name="st_du_lich" id="st_du_lich" value="dulich"> Du lịch</label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <label for="website">Website cá nhân:</label>
+                        <input type="url" name="website" id="website" placeholder="https://example.com">
+                    </div>
+
+                    <div class="row">
+                        <label for="avatar">Ảnh đại diện:</label>
+                        <input type="file" name="avatar" id="avatar" accept="image/png, image/jpeg">
+                    </div>
+                </fieldset>
+
+                <div class="actions">
+                    <button class="btn btn-primary" type="submit">Đăng ký ngay</button>
+                    <button class="btn btn-secondary" type="reset">Nhập lại</button>
+                </div>
+            </form>
+        </section>
+    </main>
+
+</body>
+</html>

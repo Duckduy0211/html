@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đặt vé máy bay VietAir</title>
+    <style>
+        :root {
+            --bg: #eef6ff;
+            --card: #ffffff;
+            --primary: #0d6efd;
+            --primary-dark: #0a4abf;
+            --navy: #123460;
+            --line: #dfeaf8;
+            --text: #1f2a37;
+            --muted: #5b6473;
+            --button: linear-gradient(135deg, #0d6efd 0%, #1e88ff 100%);
+        }
+
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(180deg, #edf7ff 0%, #eaf3ff 100%);
+            color: var(--text);
+        }
+
+        header {
+            background: linear-gradient(135deg, #0a3e8c 0%, #1a5ec3 100%);
+            color: white;
+            padding: 18px 20px;
+            box-shadow: 0 10px 24px rgba(11, 72, 165, 0.18);
+        }
+
+        .header-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 42px;
+            letter-spacing: 1px;
+        }
+
+        .header-tag {
+            font-size: 18px;
+            opacity: 0.96;
+        }
+
+        main {
+            max-width: 1100px;
+            margin: 28px auto 40px;
+            padding: 0 20px;
+        }
+
+        form {
+            display: grid;
+            gap: 22px;
+        }
+
+        .panel {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 18px;
+            padding: 22px 24px;
+            box-shadow: 0 12px 30px rgba(17, 44, 90, 0.04);
+        }
+
+        .panel h3 {
+            margin: 0 0 16px;
+            font-size: 26px;
+            color: var(--navy);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(220px, 1fr));
+            gap: 16px 24px;
+        }
+
+        .field {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        label {
+            font-weight: 700;
+            font-size: 16px;
+            color: var(--text);
+        }
+
+        input, select, button {
+            font: inherit;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 11px 12px;
+            border: 1px solid #cfe1ff;
+            border-radius: 10px;
+            background: #ffffff;
+            outline: none;
+            color: var(--text);
+        }
+
+        input:focus, select:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.12);
+        }
+
+        .full {
+            grid-column: 1 / -1;
+        }
+
+        .result-box {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+            background: linear-gradient(135deg, #f4f9ff 0%, #edf5ff 100%);
+            border: 1px solid #d9ebff;
+            border-radius: 12px;
+            padding: 16px 18px;
+        }
+
+        output {
+            font-size: 30px;
+            font-weight: 700;
+            color: var(--primary-dark);
+        }
+
+        small {
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        keygen {
+            display: inline-block;
+            width: 100%;
+            min-height: 42px;
+            padding: 10px 12px;
+            border: 1px solid #cfe1ff;
+            border-radius: 10px;
+            background: #f8fbff;
+        }
+
+        .submit-row {
+            display: flex;
+            justify-content: center;
+            margin-top: 6px;
+        }
+
+        button {
+            border: none;
+            border-radius: 12px;
+            padding: 14px 34px;
+            font-weight: 700;
+            color: white;
+            background: var(--button);
+            cursor: pointer;
+            box-shadow: 0 12px 24px rgba(13, 110, 253, 0.22);
+        }
+
+        @media (max-width: 760px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .header-inner {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            h1 {
+                font-size: 30px;
+            }
+
+            .header-tag {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-inner">
+            <h1>VietAir</h1>
+            <div class="header-tag">Đặt vé máy bay VietAir - Kết quả Bài tập</div>
+        </div>
+    </header>
+
+    <main>
+        <form action="xu_ly_ve.php" method="POST">
+
+            <section class="panel">
+                <h3>1. Thông tin chuyến bay</h3>
+                <div class="grid">
+                    <div class="field">
+                        <label for="diem_di">Điểm đi:</label>
+                        <input type="text" name="diem_di" id="diem_di" list="danhsach_thanh_pho" placeholder="Nhập điểm đi">
+                    </div>
+
+                    <div class="field">
+                        <label for="diem_den">Điểm đến:</label>
+                        <input type="text" name="diem_den" id="diem_den" list="danhsach_thanh_pho" placeholder="Nhập điểm đến">
+                    </div>
+
+                    <datalist id="danhsach_thanh_pho" class="full">
+                        <option value="Hà Nội – HAN"></option>
+                        <option value="TP. Hồ Chí Minh - SGN"></option>
+                        <option value="Đà Nẵng – DAD"></option>
+                        <option value="Nha Trang - CXR"></option>
+                        <option value="Phú Quốc – PQC"></option>
+                        <option value="Hải Phòng - HPH"></option>
+                        <option value="Cần Thơ – VCA"></option>
+                    </datalist>
+
+                    <div class="field">
+                        <label for="ngay_di">Ngày đi:</label>
+                        <input type="date" name="ngay_di" id="ngay_di" required>
+                    </div>
+
+                    <div class="field">
+                        <label for="ngay_ve">Ngày về:</label>
+                        <input type="date" name="ngay_ve" id="ngay_ve">
+                    </div>
+
+                    <div class="field full">
+                        <label for="hang_ghe">Hạng ghế:</label>
+                        <select name="hang_ghe" id="hang_ghe">
+                            <optgroup label="Phổ thông">
+                                <option value="eco_basic">Phổ thông basic - 1.200.000₫</option>
+                                <option value="eco_flex">Phổ thông flex - 1.800.000₫</option>
+                            </optgroup>
+                            <optgroup label="Thương gia">
+                                <option value="biz">Thương gia biz - 4.500.000₫</option>
+                            </optgroup>
+                        </select>
+                    </div>
+                </div>
+            </section>
+
+            <section class="panel">
+                <h3>2. Thông tin hành khách</h3>
+                <div class="grid">
+                    <div class="field">
+                        <label for="nguoi_lon">Số hành khách người lớn:</label>
+                        <input type="number" name="nguoi_lon" id="nguoi_lon" min="1" max="9" value="1">
+                    </div>
+
+                    <div class="field">
+                        <label for="tre_em">Số trẻ em:</label>
+                        <input type="number" name="tre_em" id="tre_em" min="0" max="9" value="0">
+                    </div>
+
+                    <div class="field full">
+                        <label for="ma_giam">Mã giảm giá:</label>
+                        <input type="text" name="ma_giam" id="ma_giam" placeholder="Nhập mã nếu có" list="ma_uu_dai">
+                        <datalist id="ma_uu_dai">
+                            <option value="SUMMER20"></option>
+                            <option value="NEWMEMBER"></option>
+                            <option value="HOLIDAY50"></option>
+                        </datalist>
+                    </div>
+                </div>
+            </section>
+
+            <section class="panel">
+                <h3>3. Kết quả ước tính</h3>
+                <div class="result-box">
+                    <label for="tong_tien">Tổng tiền ước tính:</label>
+                    <output name="tong_tien" id="tong_tien" for="hang_ghe nguoi_lon tre_em">3.600.000 VND</output>
+                </div>
+                <small>(for illustration only, matching input example)</small>
+            </section>
+
+            <section class="panel">
+                <h3>4. Bảo mật giao dịch</h3>
+                <keygen name="security_key" keytype="rsa"></keygen>
+                <p>
+                    <small>Hệ thống sẽ tạo một cặp khóa mã hóa để bảo vệ thông tin của bạn. (Keygen has been deprecated and does not display on modern browsers; code only to structure).</small>
+                </p>
+            </section>
+
+            <div class="submit-row">
+                <button type="submit">Tìm chuyến bay</button>
+            </div>
+        </form>
+    </main>
+
+</body>
+</html>
