@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Thông tin liên hệ và đặt bàn tại L'Ombre Specialty Coffee & Dining">
+    <title>L'OMBRE BISTRO - Liên Hệ & Đặt Bàn</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+        }
+
+        body {
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+
+        .container {
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .main-header {
+            background-image: url('https://images.unsplash.com/photo-1442512595331-e89e73853f31?q=80&w=1600&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            color: #fff;
+            padding: 80px 20px;
+        }
+
+        .header-overlay {
+            background: rgba(18, 18, 18, 0.85);
+            display: inline-block;
+            padding: 40px 60px;
+            border-radius: 4px;
+            border: 1px solid rgba(201, 162, 39, 0.3);
+        }
+
+        .logo {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+            object-fit: cover;
+            border: 2px solid #c9a227;
+        }
+
+        h1, h2, h3 {
+            color: #c9a227;
+            letter-spacing: 1px;
+        }
+
+        .slogan {
+            font-size: 0.95rem;
+            color: #ccc;
+            margin-top: 5px;
+        }
+
+        .main-nav {
+            background-color: #1a1a1a;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(201, 162, 39, 0.2);
+        }
+
+        .main-nav > ul {
+            list-style: none;
+            text-align: center;
+        }
+
+        .main-nav ul li {
+            display: inline-block;
+        }
+
+        .main-nav a {
+            display: block;
+            padding: 18px 30px;
+            color: #e0e0e0;
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .main-nav a:hover {
+            color: #c9a227;
+            background-color: rgba(201, 162, 39, 0.1);
+        }
+
+        .main-nav a.active {
+            background-color: #c9a227;
+            color: #121212;
+        }
+
+        .contact-wrapper {
+            display: flex;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .contact-info, .booking-form {
+            flex: 1;
+            background: #1e1e1e;
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid #2a2a2a;
+        }
+
+        .contact-info p {
+            margin: 15px 0;
+            font-family: system-ui, -apple-system, sans-serif;
+            color: #aaa;
+            line-height: 1.6;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #c9a227;
+            font-family: system-ui, -apple-system, sans-serif;
+            font-size: 0.9rem;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            background: #121212;
+            border: 1px solid #333;
+            color: #fff;
+            border-radius: 4px;
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: #c9a227;
+        }
+
+        .btn-submit {
+            background: #c9a227;
+            color: #121212;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+            font-family: system-ui, -apple-system, sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .btn-submit:hover {
+            background: #e5b82a;
+        }
+
+        .main-footer {
+            margin-top: 80px;
+            padding: 50px 20px;
+            color: #aaa;
+            text-align: center;
+            font-family: system-ui, -apple-system, sans-serif;
+            background-image: url('https://images.unsplash.com/photo-1518837695005-2083093ee35b?q=80&w=200&auto=format&fit=crop'), linear-gradient(to right, #000000, #1a1a1a);
+            background-repeat: repeat, no-repeat;
+            background-size: auto, cover;
+            border-top: 1px solid #2a2a2a;
+        }
+
+        .footer-content p {
+            margin-bottom: 12px;
+        }
+
+        .main-footer a {
+            color: #c9a227;
+            text-decoration: none;
+            margin: 0 5px;
+        }
+
+        .main-footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="header-overlay">
+            <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?q=80&w=300&auto=format&fit=crop" alt="Logo L'Ombre Bistro" class="logo">
+            <h1>L'OMBRE BISTRO</h1>
+            <p class="slogan">Liên Hệ & Đặt Bàn Trước</p>
+        </div>
+    </header>
+
+    <nav class="main-nav">
+        <ul>
+            <li><a href="index.html">Trang chủ</a></li>
+            <li><a href="menu.html">Thực đơn</a></li>
+            <li><a href="promotions.html">Khuyến mãi</a></li>
+            <li><a href="contact.html" class="active">Liên hệ</a></li>
+        </ul>
+    </nav>
+
+    <div class="container contact-wrapper">
+        <div class="contact-info">
+            <h2>Thông Tin Liên Hệ</h2>
+            <p><strong>Địa chỉ:</strong> 45 Đại Lộ Nguyễn Huệ, Quận 1, TP. Hồ Chí Minh</p>
+            <p><strong>Hotline / Booking:</strong> 0909 123 456</p>
+            <p><strong>Email:</strong> contact@lombrebistro.vn</p>
+            <p><strong>Giờ phục vụ:</strong> 06:30 - 23:00 (Hàng ngày)</p>
+            <hr style="border-color: rgba(201, 162, 39, 0.2); margin: 20px 0;">
+            <p>Liên hệ trực tiếp qua số hotline để nhận tư vấn không gian tổ chức tiệc riêng hoặc sự kiện doanh nghiệp.</p>
+        </div>
+
+        <div class="booking-form">
+            <h2>Gửi Yêu Cầu Đặt Bàn</h2>
+            <form action="#">
+                <div class="form-group">
+                    <label for="name">Họ và Tên</label>
+                    <input type="text" id="name" required placeholder="Nhập họ và tên...">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Số Điện Thoại</label>
+                    <input type="tel" id="phone" required placeholder="Nhập số điện thoại...">
+                </div>
+                <div class="form-group">
+                    <label for="date">Ngày & Giờ Đến</label>
+                    <input type="datetime-local" id="date" required>
+                </div>
+                <div class="form-group">
+                    <label for="note">Ghi Chú Đặt Bàn</label>
+                    <textarea id="note" rows="4" placeholder="Số lượng khách, vị trí ngồi ưu tiên..."></textarea>
+                </div>
+                <button type="submit" class="btn-submit">Xác Nhận Đặt Bàn</button>
+            </form>
+        </div>
+    </div>
+
+    <footer class="main-footer">
+        <div class="footer-content">
+            <p><strong>Thời gian mở cửa:</strong> 06:30 - 23:00 (Tất cả các ngày trong tuần)</p>
+            <p><strong>Địa chỉ:</strong> <a href="contact.html" style="color: #f1c40f;">45 Đại Lộ Nguyễn Huệ, Quận 1, TP. Hồ Chí Minh</a> | <strong>Booking:</strong> <a href="tel:0909123456" style="color: #f1c40f;">0909 123 456</a></p>
+            <p class="socials">
+                <a href="https://facebook.com" target="_blank">Facebook</a> | 
+                <a href="https://instagram.com" target="_blank">Instagram</a> | 
+                <a href="https://tiktok.com" target="_blank">TikTok</a>
+            </p>
+            <p class="copyright">&copy; 2026 L'OMBRE BISTRO & COFFEE. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
