@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tính lương tháng</title>
+    <style>
+        table {
+            width: 500px;
+            border: 3px solid blue;
+            background-color: #ffcc99;
+        }
+
+        td {
+            border: 2px solid blue;
+            padding: 4px;
+        }
+
+        input[type="number"] {
+            width: 95%;
+        }
+
+        .nut {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <form id="formTinhLuong">
+        <table>
+            <tr>
+                <td><label for="luong">Lương</label></td>
+                <td><input type="number" id="luong" value="1000000" min="0" required></td>
+            </tr>
+            <tr>
+                <td><label for="heSo">Hệ số lương</label></td>
+                <td><input type="number" id="heSo" value="3.2" min="0" step="0.1" required></td>
+            </tr>
+            <tr>
+                <td colspan="2" class="nut">
+                    <button type="submit">Tính lương tháng</button>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>Lương tháng</strong></td>
+                <td><span id="ketQua">3200000</span></td>
+            </tr>
+        </table>
+    </form>
+
+    <script>
+        document.getElementById("formTinhLuong").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            const luong = Number(document.getElementById("luong").value);
+            const heSo = Number(document.getElementById("heSo").value);
+            const luongThang = luong * heSo;
+
+            document.getElementById("ketQua").textContent = luongThang;
+        });
+    </script>
+</body>
+</html>

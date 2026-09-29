@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tra thứ trong tuần</title>
+    <style>
+        table {
+            width: 800px;
+            max-width: 100%;
+            border: 4px solid blue;
+            background-color: #ffcccc;
+            font-size: 20px;
+        }
+
+        td {
+            border: 2px solid blue;
+            padding: 6px;
+        }
+
+        input {
+            width: 100px;
+            font-size: 18px;
+        }
+
+        .nut, #ketQua {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <form id="formNgay">
+        <table>
+            <tr>
+                <td><label for="ngay">Ngày</label></td>
+                <td><input type="number" id="ngay" min="1" max="31" value="12" required></td>
+                <td><label for="thang">Tháng</label></td>
+                <td><input type="number" id="thang" min="1" max="12" value="1" required></td>
+                <td><label for="nam">Năm</label></td>
+                <td><input type="number" id="nam" min="1" value="2015" required></td>
+            </tr>
+            <tr>
+                <td colspan="6" class="nut">
+                    <button type="submit">Xuất thứ</button>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="6" id="ketQua">Kết quả sẽ hiển thị ở đây</td>
+            </tr>
+        </table>
+    </form>
+
+    <script>
+        document.getElementById("formNgay").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            const ngay = Number(document.getElementById("ngay").value);
+            const thang = Number(document.getElementById("thang").value);
+            const nam = Number(document.getElementById("nam").value);
+            const ketQua = document.getElementById("ketQua");
+
+            const ngayCanKiemTra = new Date(nam, thang - 1, ngay);
+
+            if (
+                ngay < 1 || thang < 1 || thang > 12 || nam < 1 ||
+                ngayCanKiemTra.getFullYear() !== nam ||
+                ngayCanKiemTra.getMonth() !== thang - 1 ||
+                ngayCanKiemTra.getDate() !== ngay
+            ) {
+                ketQua.textContent = "Ngày, tháng hoặc năm không hợp lệ.";
+                return;
+            }
+
+            const tenThu = [
+                "Chủ nhật", "Thứ 2", "Thứ 3", "Thứ 4",
+                "Thứ 5", "Thứ 6", "Thứ 7"
+            ];
+
+            ketQua.textContent =
+                `${tenThu[ngayCanKiemTra.getDay()]} Ngày ${ngay} tháng ${thang} năm ${nam}`;
+        });
+    </script>
+</body>
+</html>

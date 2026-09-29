@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tính Can Chi năm âm lịch</title>
+    <style>
+        .khung {
+            max-width: 580px;
+            padding: 8px;
+            border: 1px solid turquoise;
+            background-color: #ccffff;
+        }
+
+        h2 {
+            margin: 0;
+            background-color: #ffffcc;
+            text-align: center;
+        }
+
+        .noiDung {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+
+        .cot {
+            flex: 1;
+        }
+
+        input {
+            box-sizing: border-box;
+            width: 100%;
+            padding: 6px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 6px 14px;
+            border-radius: 16px;
+            cursor: pointer;
+        }
+
+        #thongBao {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="khung">
+        <h2>TÍNH CAN CHI CỦA NĂM ÂM LỊCH</h2>
+
+        <div class="noiDung">
+            <div class="cot">
+                <label for="namDuongLich">Năm dương lịch</label>
+                <input type="text" id="namDuongLich" value="2015"
+                       inputmode="numeric" placeholder="Nhập năm">
+            </div>
+
+            <button type="button" onclick="tinhCanChi()" aria-label="Tính Can Chi">---&gt;</button>
+
+            <div class="cot">
+                <label for="namAmLich">Can chi năm âm lịch</label>
+                <input type="text" id="namAmLich" readonly>
+            </div>
+        </div>
+
+        <p id="thongBao" aria-live="polite"></p>
+    </div>
+
+    <script>
+        function tinhCanChi() {
+            const giaTriNam = document.getElementById("namDuongLich").value.trim();
+            const ketQua = document.getElementById("namAmLich");
+            const thongBao = document.getElementById("thongBao");
+
+            if (!/^\d+$/.test(giaTriNam)) {
+                ketQua.value = "";
+                thongBao.textContent = "Vui lòng nhập năm là số nguyên dương.";
+                return;
+            }
+
+            const nam = Number(giaTriNam);
+
+            if (!Number.isSafeInteger(nam) || nam < 1 || nam > 9999) {
+                ketQua.value = "";
+                thongBao.textContent = "Năm phải nằm trong khoảng từ 1 đến 9999.";
+                return;
+            }
+
+            const can = ["Giáp", "Ất", "Bính", "Đinh", "Mậu",
+                         "Kỷ", "Canh", "Tân", "Nhâm", "Quý"];
+            const chi = ["Tý", "Sửu", "Dần", "Mão", "Thìn", "Tỵ",
+                         "Ngọ", "Mùi", "Thân", "Dậu", "Tuất", "Hợi"];
+
+            const chiSoCan = ((nam - 4) % 10 + 10) % 10;
+            const chiSoChi = ((nam - 4) % 12 + 12) % 12;
+
+            ketQua.value = `${can[chiSoCan]} ${chi[chiSoChi]}`;
+            thongBao.textContent = "";
+        }
+
+        tinhCanChi();
+    </script>
+</body>
+</html>

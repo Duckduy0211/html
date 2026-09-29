@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diện tích tam giác</title>
+</head>
+<body>
+    <script>
+        <p id="ketQua"></p>
+        function tinhDienTichTamGiac(a, b, c) {
+            const nuaChuVi = (a + b + c) / 2;
+            const dienTich = Math.sqrt(
+                nuaChuVi * (nuaChuVi - a) * (nuaChuVi - b) * (nuaChuVi - c)
+            );
+            return dienTich;
+        }
+        var a = 5;
+        var b = 6;
+        var c = 7;
+        var dienTich = tinhDienTichTamGiac(a, b, c);
+        console.log("Diện tích tam giác:", dienTich);
+        window.alert("Diện tích tam giác: " + dienTich);
+        document.getElementById("ketQua").innerHTML = "Diện tích tam giác: " + dienTich;
+    </script>
+</body>
+</html>
+

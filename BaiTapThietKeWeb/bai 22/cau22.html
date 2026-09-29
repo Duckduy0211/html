@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nhân và chia hai số</title>
+</head>
+<body>
+    <h2>Nhân và chia hai số nguyên</h2>
+
+    <label for="soThuNhat">Số thứ nhất:</label>
+    <input type="number" id="soThuNhat" step="1">
+
+    <br><br>
+
+    <label for="soThuHai">Số thứ hai:</label>
+    <input type="number" id="soThuHai" step="1">
+
+    <br><br>
+
+    <button type="button" onclick="tinh('nhan')">Mltiply</button>
+    <button type="button" onclick="tinh('chia')">Devide</button>
+
+    <p id="ketQua"></p>
+
+    <script>
+        function tinh(phepTinh) {
+            const giaTri1 = document.getElementById("soThuNhat").value.trim();
+            const giaTri2 = document.getElementById("soThuHai").value.trim();
+            const ketQua = document.getElementById("ketQua");
+
+            const so1 = Number(giaTri1);
+            const so2 = Number(giaTri2);
+
+            if (giaTri1 === "" || giaTri2 === "" ||
+                !Number.isInteger(so1) || !Number.isInteger(so2)) {
+                ketQua.textContent = "Vui lòng nhập hai số nguyên hợp lệ.";
+                return;
+            }
+
+            if (phepTinh === "chia" && so2 === 0) {
+                ketQua.textContent = "Không thể chia cho 0.";
+                return;
+            }
+
+            const ketQuaTinh = phepTinh === "nhan" ? so1 * so2 : so1 / so2;
+            ketQua.textContent = "Kết quả: " + ketQuaTinh;
+        }
+    </script>
+</body>
+</html>

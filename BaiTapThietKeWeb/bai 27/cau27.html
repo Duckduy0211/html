@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý danh sách</title>
+    <style>
+        table {
+            width: 600px;
+            max-width: 100%;
+            border-collapse: collapse;
+            background-color: #ccffcc;
+        }
+
+        th, td {
+            border: 2px solid #aaa;
+            padding: 4px;
+        }
+
+        input {
+            box-sizing: border-box;
+            width: 100%;
+            font-size: 16px;
+        }
+
+        th {
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>Số lượng</th>
+                <th>Đơn giá</th>
+                <th>Tổng</th>
+                <th>Chức năng</th>
+            </tr>
+        </thead>
+        <tbody id="danhSach">
+            <tr>
+                <td><input type="number" class="soLuong" value="2" min="0"></td>
+                <td><input type="number" class="donGia" value="1000000" min="0"></td>
+                <td><input type="number" class="tong" value="2000000" readonly></td>
+                <td><button type="button" class="nutXoa">Xóa</button></td>
+            </tr>
+            <tr>
+                <td><input type="number" class="soLuong" value="1" min="0"></td>
+                <td><input type="number" class="donGia" value="500000" min="0"></td>
+                <td><input type="number" class="tong" value="500000" readonly></td>
+                <td><button type="button" class="nutXoa">Xóa</button></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        const danhSach = document.getElementById("danhSach");
+
+        danhSach.addEventListener("click", function (event) {
+            if (event.target.classList.contains("nutXoa")) {
+                event.target.closest("tr").remove();
+            }
+        });
+
+        danhSach.addEventListener("input", function (event) {
+            if (
+                event.target.classList.contains("soLuong") ||
+                event.target.classList.contains("donGia")
+            ) {
+                const dong = event.target.closest("tr");
+                const soLuong = Number(dong.querySelector(".soLuong").value) || 0;
+                const donGia = Number(dong.querySelector(".donGia").value) || 0;
+
+                dong.querySelector(".tong").value = soLuong * donGia;
+            }
+        });
+    </script>
+</body>
+</html>
