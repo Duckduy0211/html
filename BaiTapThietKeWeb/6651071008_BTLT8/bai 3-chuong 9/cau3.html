@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Insert row in a table - jQuery</title>
+<!-- Thêm thư viện jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+<table id="sampleTable" border="1">
+<tr><td>Row1 cell1</td>
+<td>Row1 cell2</td></tr>
+<tr><td>Row2 cell1</td>
+<td>Row2 cell2</td></tr>
+</table><br>
+<input type="button" onclick="insert_Row()" value="Insert row">
+
+<script>
+function insert_Row() {
+    // Sử dụng jQuery đểappend một hàng (tr) chứa 2 ô (td) mới vào cuối bảng
+    $('#sampleTable').append('<tr><td>New Row cell1</td><td>New Row cell2</td></tr>');
+}
+</script>
+</body>
+</html>
